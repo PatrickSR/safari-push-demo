@@ -62,15 +62,15 @@ router.post('/push', function(req, res, next) {
     note.expiry = Math.floor(Date.now() / 1000) + 3600; // Expires 1 hour from now.
     note.badge = 3;
     note.alert = {
-        "title": "Flight A998 Now Boarding",
-        "body": "Boarding has begun for Flight A998.",
+        "title": "Safari Message Push Title",
+        "body": "😂终于可以了",
         "action": "View"
     }
     note.payload = {
         'messageFrom': 'Caroline'
     };
-    // note.urlArgs = ["boarding", "A998"]
-    note.urlArgs = []
+    note.urlArgs = ["boarding", "A998"]
+    // note.urlArgs = []
     apnConnection.pushNotification(note, myMac);
     res.send(200)
 })
