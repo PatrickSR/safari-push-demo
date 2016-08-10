@@ -6,6 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var fs = require('fs');
 var pushLib = require('safari-push-notifications');
+var apn = require('apn');
 
 // var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -38,7 +39,7 @@ function createSignature() {
       "Safari Push Notification Test", // websiteName 
       "web.com.gf.testapp", // websitePushID 
       ["http://safari-push-demo-app.herokuapp.com"], // allowedDomains 
-      "http://safari-push-demo-app.herokuapp.com/%@/", // urlFormatString 
+      "http://safari-push-demo-app.herokuapp.com/%@/?flight=%@", // urlFormatString 
       0123456789012345, // authenticationToken (zeroFilled to fit 16 chars) 
       "https://safari-push-demo-app.herokuapp.com" // webServiceURL (Must be https!) 
     );
@@ -56,6 +57,11 @@ function createSignature() {
 }
 
 createSignature();
+//---------------------------------------------//
+
+var options = {};
+
+var apnConnection = new apn.Connection(options);
 
 
 // catch 404 and forward to error handler
@@ -89,5 +95,6 @@ app.use(function(err, req, res, next) {
   });
 });
 
+app.apns = apnConnection;
 
 module.exports = app;

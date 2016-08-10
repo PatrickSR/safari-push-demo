@@ -1,10 +1,12 @@
 /// <reference path="../typings/tsd.d.ts" />
 var express = require('express');
 var fs = require('fs');
+var apn = require('apn');
+
 var router = express.Router();
 
-router.use(function (req,res,next) {
-    console.log('req -> '+JSON.stringify(req.body))
+router.use(function(req, res, next) {
+    console.log('req -> ' + JSON.stringify(req.body))
     next()
 })
 
@@ -24,7 +26,7 @@ router.post('/v1/pushPackages/web.com.gf.testapp', function(req, res, next) {
     res.set({
         'Content-type': 'application/zip'
     });
-    res.send( file );
+    res.send(file);
 });
 
 
@@ -38,13 +40,38 @@ router.post('/v1/devices/:deviceToken/registrations/:websitePushID', function(re
         "url-args": [""]
     };
 
-    res.send(200,data);
+    res.send(200, data);
 })
 
-router.post('/v1/log',function (req, res, next) {
-    console.log('req:'+req)
+router.post('/v1/log', function(req, res, next) {
+    console.log('req:' + req)
     var logs = req.params;
     console.log(logs)
+    res.send(200)
+})
+
+//APNS 发送消息
+router.post('/push', function(req, res, next) {
+    var app = require('../app')
+    var apnConnection = app.apns
+
+    var myMac = new apn.Device("DC2841B635EB987EE57AAAF7ABDAA68E1173EBB277CB1D3985E4A9FBCF7FE152");
+
+    var note = new apn.Notification();
+
+    note.expiry = Math.floor(Date.now() / 1000) + 3600; // Expires 1 hour from now.
+    note.badge = 3;
+    note.alert = {
+        "title": "Flight A998 Now Boarding",
+        "body": "Boarding has begun for Flight A998.",
+        "action": "View"
+    }
+    note.payload = {
+        'messageFrom': 'Caroline'
+    };
+    // note.urlArgs = ["boarding", "A998"]
+    note.urlArgs = []
+    apnConnection.pushNotification(note, myMac);
     res.send(200)
 })
 
