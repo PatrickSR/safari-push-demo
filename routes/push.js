@@ -4,7 +4,7 @@ var fs = require('fs');
 var router = express.Router();
 
 router.use(function (req,res,next) {
-    console.log('req -> '+req.body)
+    console.log('req -> '+JSON.stringify(req.body))
     next()
 })
 
