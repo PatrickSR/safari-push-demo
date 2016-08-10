@@ -4,6 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var fs = require('fs');
 
 // var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -25,6 +26,31 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', push);
 app.use('/users', users);
+
+//创建push notification需要的参数包
+function createSignature(){
+    var cert = fs.readFileSync('webPush/push_cert.pem'),
+        key = fs.readFileSync('webPush/no_pass_private.pem'),
+        websiteJson = pushLib.websiteJSON(
+            "Safari Push Notification Test", // websiteName 
+            "web.com.gf.testapp", // websitePushID 
+            ["https://safari-push-demo-app.herokuapp.com"], // allowedDomains 
+            "https://safari-push-demo-app.herokuapp.com/%@/", // urlFormatString 
+            0123456789012345, // authenticationToken (zeroFilled to fit 16 chars) 
+            "https://safari-push-demo-app.herokuapp.com" // webServiceURL (Must be https!) 
+        );
+    var zipBuffer = pushLib.generatePackage(
+            websiteJson, // The object from before / your own website.json object 
+            path.join("assets", "safari_assets"), // Folder containing the iconset 
+            cert, // Certificate 
+            key // Private Key 
+        );
+ 
+    fs.writeFileSync("pushPackage.zip", zipBuffer);
+    console.log("success");
+} 
+
+createSignature();
 
 
 // catch 404 and forward to error handler

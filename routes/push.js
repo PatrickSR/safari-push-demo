@@ -16,9 +16,15 @@ router.get('/', function(req, res, next) {
     });
 });
 
-router.post('/v1/pushPackages/:webid', function(req, res, next) {
-    res.set('Content-Type', 'application/zip')
-    res.sendfile('public/pushpackage.zip')
+router.post('/v1/pushPackages/web.com.gf.testapp', function(req, res, next) {
+    // res.set('Content-Type', 'application/zip')
+    // res.sendfile('public/pushpackage.zip')
+    console.log('website push id', req.params.websitePushID);
+    var file = fs.readFileSync('pushPackage.zip');
+    res.set({
+        'Content-type': 'application/zip'
+    });
+    res.send( file );
 });
 
 
