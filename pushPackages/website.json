@@ -1,0 +1,8 @@
+{
+    "websiteName": "Safari notification demo for heroku",
+    "websitePushID": "web.com.gf.testapp",
+    "allowedDomains": ["https://safari-push-demo-app.herokuapp.com"],
+    "urlFormatString": "https://safari-push-demo-app.herokuapp.com/%@/?flight=%@",
+    "authenticationToken": "19f8d7a6e9fb8a7f6d9330dabe6666666666",
+    "webServiceURL": "https://safari-push-demo-app.herokuapp.com"
+}
