@@ -7,7 +7,6 @@ var bodyParser = require('body-parser');
 var fs = require('fs');
 var pushLib = require('safari-push-notifications');
 
-
 // var routes = require('./routes/index');
 var users = require('./routes/users');
 var push = require('./routes/push');
@@ -22,7 +21,9 @@ app.set('view engine', 'jade');
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({
+  extended: false
+}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -30,27 +31,29 @@ app.use('/', push);
 app.use('/users', users);
 
 //创建push notification需要的参数包
-function createSignature(){
-    var cert = fs.readFileSync('webPush/push_cert.pem'),
-        key = fs.readFileSync('webPush/no_pass_private.pem'),
-        websiteJson = pushLib.websiteJSON(
-            "Safari Push Notification Test", // websiteName 
-            "web.com.gf.testapp", // websitePushID 
-            ["https://safari-push-demo-app.herokuapp.com"], // allowedDomains 
-            "https://safari-push-demo-app.herokuapp.com/%@/", // urlFormatString 
-            0123456789012345, // authenticationToken (zeroFilled to fit 16 chars) 
-            "https://safari-push-demo-app.herokuapp.com" // webServiceURL (Must be https!) 
-        );
-    var zipBuffer = pushLib.generatePackage(
-            websiteJson, // The object from before / your own website.json object 
-            path.join("assets", "safari_assets"), // Folder containing the iconset 
-            cert, // Certificate 
-            key // Private Key 
-        );
- 
-    fs.writeFileSync("pushPackage.zip", zipBuffer);
-    console.log("success");
-} 
+function createSignature() {
+  var cert = fs.readFileSync('webPush/push_cert.pem'),
+    key = fs.readFileSync('webPush/no_pass_private.pem'),
+    websiteJson = pushLib.websiteJSON(
+      "Safari Push Notification Test", // websiteName 
+      "web.com.gf.testapp", // websitePushID 
+      ["https://safari-push-demo-app.herokuapp.com"], // allowedDomains 
+      "https://safari-push-demo-app.herokuapp.com/%@/", // urlFormatString 
+      0123456789012345, // authenticationToken (zeroFilled to fit 16 chars) 
+      "https://safari-push-demo-app.herokuapp.com" // webServiceURL (Must be https!) 
+    );
+
+  pushLib.generatePackage(
+      websiteJson, // The object from before / your own website.json object
+      path.join('assets', 'safari_assets'), // Folder containing the iconset
+      cert, // Certificate
+      key // Private Key
+    )
+    .pipe(fs.createWriteStream('pushPackage.zip'))
+    .on('finish', function() {
+      console.log('pushPackage.zip is ready.');
+    });
+}
 
 createSignature();
 
