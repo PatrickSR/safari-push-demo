@@ -10,7 +10,7 @@ router.get('/', function(req, res, next) {
     });
 });
 
-router.get('/v1/pushPackages/:webid', function(req, res, next) {
+router.post('/v1/pushPackages/:webid', function(req, res, next) {
     res.set('Content-Type', 'application/zip')
     res.sendfile('public/pushPackages.zip')
 });
@@ -30,7 +30,8 @@ router.post('/v1/devices/:deviceToken/registrations/:websitePushID', function(re
 })
 
 router.post('/v1/log',function (req, res, next) {
-    var logs = req.logs;
+    console.log('req:'+req)
+    var logs = req.params;
     console.log(logs)
     res.send(200)
 })
