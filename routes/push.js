@@ -18,7 +18,7 @@ router.get('/', function(req, res, next) {
 
 router.post('/v1/pushPackages/:webid', function(req, res, next) {
     res.set('Content-Type', 'application/zip')
-    res.sendfile('public/pushpackages.zip')
+    res.sendfile('public/pushpackage.zip')
 });
 
 
