@@ -29,4 +29,10 @@ router.post('/v1/devices/:deviceToken/registrations/:websitePushID', function(re
     res.send(200,data);
 })
 
+router.post('/v1/log',function (req, res, next) {
+    var logs = req.logs;
+    console.log(logs)
+    res.send(200)
+})
+
 module.exports = router;
