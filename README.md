@@ -12,10 +12,15 @@
 
 主要依赖的两个module分别是：
 
-[safari-push-notifications（负责生成 push package）]: https://github.com/MySiteApp/node-safari-push-notifications
-[apn（负责生成通知推送到Apple apns）]: https://github.com/argon/node-apn
+apn（负责生成通知推送到Apple apns）
+
+https://github.com/argon/node-apn
 
 
+
+ssafari-push-notifications（负责生成 push package）
+
+https://github.com/MySiteApp/node-safari-push-notifications
 
 ## Install:
 
@@ -168,5 +173,12 @@ Decription：**发送消息推送到对应的设备上**
 
 ## Reference
 
-[导出pem证书给服务端Push Notification使用]: http://blog.csdn.net/cooldragon/article/details/19404645
-[configuring safari push notification]: https://developer.apple.com/library/prerelease/content/documentation/NetworkingInternet/Conceptual/NotificationProgrammingGuideForWebsites/PushNotifications/PushNotifications.html#//apple_ref/doc/uid/TP40013225-CH3-SW30
+导出pem证书给服务端Push Notification使用     
+
+http://blog.csdn.net/cooldragon/article/details/19404645
+
+
+
+Configuring safari push notification      
+
+https://developer.apple.com/library/prerelease/content/documentation/NetworkingInternet/Conceptual/NotificationProgrammingGuideForWebsites/PushNotifications/PushNotifications.html#//apple_ref/doc/uid/TP40013225-CH3-SW30
