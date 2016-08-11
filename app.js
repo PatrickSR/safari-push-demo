@@ -109,13 +109,16 @@ function removeToken(token) {
   getTokens(function(tokens) {
     for (var index = 0; index < tokens.length; index++) {
       var element = tokens[index];
-      if (token == element) {}
-      tokens.splice(index, 1);
+      if (token == element) {
+        tokens.splice(index, 1);
       break
+      }
     }
-    setTokens(token);
+    setTokens(tokens);
   })
 }
+
+removeToken("zxcvbnm")
 
 app.getTokens = getTokens
 app.setTokens = setTokens
