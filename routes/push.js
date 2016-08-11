@@ -13,9 +13,10 @@ router.use(function(req, res, next) {
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    res.render('index', {
-        title: 'Safari Push'
-    });
+    // res.render('index', {
+    //     title: 'Safari Push'
+    // });
+    res.render('index')
 });
 
 router.post('/v1/pushPackages/web.com.gf.testapp', function(req, res, next) {
