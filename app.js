@@ -35,7 +35,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', push);
 app.use('/users', users);
 
-//创建push notification需要的参数包
+//创建push notification需要的参数zip包
 function createSignature() {
   var cert = fs.readFileSync('webPush/push_cert.pem'),
     key = fs.readFileSync('webPush/no_pass_private.pem'),
@@ -67,6 +67,60 @@ var options = {};
 
 var apnConnection = new apn.Connection(options);
 
+//---------------------------------------------//
+
+/**
+ * 获取已注册的token列表
+ */
+function getTokens(callback) {
+  fs.readFile(path.join(__dirname, 'token.json'), function(err, bytesRead) {
+    if (err) throw err;
+    var data = JSON.parse(bytesRead)
+    console.log('get tokens -> ' + JSON.stringify(data))
+    callback(data)
+  });
+}
+
+/**
+ * 保存token列表
+ */
+function setTokens(tokens) {
+  var _token = JSON.stringify(tokens)
+  console.log('set tokens ' + _token)
+  fs.writeFile(path.join(__dirname, 'token.json'), _token, function(err) {
+    if (err) throw err;
+  });
+}
+
+/**
+ * 添加一个token
+ */
+function addToken(token) {
+  getTokens(function(tokens) {
+    tokens.push(token)
+    setTokens(tokens)
+  })
+}
+
+/**
+ * 删除一个token
+ */
+function removeToken(token) {
+  getTokens(function(tokens) {
+    for (var index = 0; index < tokens.length; index++) {
+      var element = tokens[index];
+      if (token == element) {}
+      tokens.splice(index, 1);
+      break
+    }
+    setTokens(token);
+  })
+}
+
+app.getTokens = getTokens
+app.setTokens = setTokens
+app.addToken = addToken
+app.removeToken = removeToken
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
