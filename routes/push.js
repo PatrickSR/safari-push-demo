@@ -41,6 +41,8 @@ router.post('/v1/pushPackages/:websitePushID', function(req, res, next) {
 router.post('/v1/devices/:deviceToken/registrations/:websitePushID', function(req, res, next) {
     var deviceToken = req.params.deviceToken;
     
+    var app = require('../app')
+    app.addToken(deviceToken)
     res.send(200);
 })
 
