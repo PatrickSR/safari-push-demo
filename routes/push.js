@@ -54,22 +54,22 @@ router.post('/v1/log', function(req, res, next) {
 router.post('/push', function(req, res, next) {
     var app = require('../app')
     var apnConnection = app.apns
+    
+    var data = req.body
 
-    var myMac = new apn.Device("DC2841B635EB987EE57AAAF7ABDAA68E1173EBB277CB1D3985E4A9FBCF7FE152");
+    var myMac = new apn.Device(data.token);
 
     var note = new apn.Notification();
 
     note.expiry = Math.floor(Date.now() / 1000) + 3600; // Expires 1 hour from now.
     note.badge = 3;
     note.alert = {
-        "title": "Safari Message Push Title",
-        "body": "😂终于可以了",
-        "action": "View"
+        title: data.title,
+        body: data.message,
+        action: data.action
     }
-    note.payload = {
-        'messageFrom': 'Caroline'
-    };
-    note.urlArgs = ["boarding", "A998"]
+    note.payload = {};
+    note.urlArgs = [data.arg1, data.arg2]
     // note.urlArgs = []
     apnConnection.pushNotification(note, myMac);
     res.send(200)
