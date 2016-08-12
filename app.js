@@ -47,7 +47,7 @@ function createSignature() {
       "https://safari-push-demo-app.herokuapp.com/%@/?flight=%@",
       // "com.gf.safari.push.demo://xxxxxx",
       0123456789012345, // authenticationToken (zeroFilled to fit 16 chars) 
-      "https://safari-push-demo-app.herokuapp.com" // webServiceURL (Must be https!) 
+      "https://gf-fintech.herokuapp.com" // webServiceURL (Must be https!) 
     );
 
   pushLib.generatePackage(
