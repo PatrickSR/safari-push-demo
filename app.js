@@ -44,6 +44,7 @@ function createSignature() {
       "web.com.gf.testapp", // websitePushID 
       ["https://safari-push-demo-app.herokuapp.com"], // allowedDomains 
       "https://safari-push-demo-app.herokuapp.com/%@/?flight=%@", // urlFormatString 
+      // "com.gf.safari.push.demo://xxxxxx",
       0123456789012345, // authenticationToken (zeroFilled to fit 16 chars) 
       "https://safari-push-demo-app.herokuapp.com" // webServiceURL (Must be https!) 
     );
@@ -109,13 +110,16 @@ function removeToken(token) {
   getTokens(function(tokens) {
     for (var index = 0; index < tokens.length; index++) {
       var element = tokens[index];
-      if (token == element) {}
-      tokens.splice(index, 1);
+      if (token == element) {
+        tokens.splice(index, 1);
       break
+      }
     }
-    setTokens(token);
+    setTokens(tokens);
   })
 }
+
+removeToken("zxcvbnm")
 
 app.getTokens = getTokens
 app.setTokens = setTokens

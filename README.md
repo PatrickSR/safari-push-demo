@@ -22,6 +22,14 @@ ssafari-push-notifications（负责生成 push package）
 
 https://github.com/MySiteApp/node-safari-push-notifications
 
+
+
+## Test:
+
+https://safari-push-demo-app.herokuapp.com
+
+
+
 ## Install:
 
 npm install
@@ -65,6 +73,10 @@ function createSignature() {
     });
 }	
 ```
+
+
+
+## Usage
 
 
 

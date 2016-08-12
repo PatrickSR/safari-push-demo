@@ -18,6 +18,9 @@ router.get('/', function(req, res, next) {
     res.render('index')
 });
 
+router.get('/open',function (req, res ,next) {
+    res.render('open')
+})
 
 /**
  * web.com.gf.testapp
@@ -41,6 +44,8 @@ router.post('/v1/pushPackages/:websitePushID', function(req, res, next) {
 router.post('/v1/devices/:deviceToken/registrations/:websitePushID', function(req, res, next) {
     var deviceToken = req.params.deviceToken;
     
+    var app = require('../app')
+    app.addToken(deviceToken)
     res.send(200);
 })
 
@@ -95,7 +100,9 @@ router.post('/push', function(req, res, next) {
         action: data.action
     }
     note.payload = {};
+    // note.urlArgs = []
     note.urlArgs = [data.arg1, data.arg2]
+    // note.urlArgs = [data.arg1]
         // note.urlArgs = []
     apnConnection.pushNotification(note, myMac);
     res.send(200)
