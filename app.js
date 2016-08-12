@@ -40,7 +40,7 @@ function createSignature() {
   var cert = fs.readFileSync('webPush/push_cert.pem'),
     key = fs.readFileSync('webPush/no_pass_private.pem'),
     websiteJson = pushLib.websiteJSON(
-      "Safari Push Notification Test", // websiteName 
+      "Fintech", // websiteName 
       "web.com.gf.testapp", // websitePushID 
       ["https://safari-push-demo-app.herokuapp.com","https://gf-fintech.herokuapp.com","https://gf-fintech-dev.herokuapp.com"], // allowedDomains 
       //"https://safari-push-demo-app.herokuapp.com/%@/?flight=%@", // urlFormatString 
