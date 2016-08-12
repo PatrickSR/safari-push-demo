@@ -18,6 +18,9 @@ router.get('/', function(req, res, next) {
     res.render('index')
 });
 
+router.get('/open',function (req, res ,next) {
+    res.render('open')
+})
 
 /**
  * web.com.gf.testapp
