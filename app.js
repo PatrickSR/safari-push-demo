@@ -43,7 +43,7 @@ function createSignature() {
       "Safari Push Notification Test", // websiteName 
       "web.com.gf.testapp", // websitePushID 
       ["https://safari-push-demo-app.herokuapp.com"], // allowedDomains 
-      "https://safari-push-demo-app.herokuapp.com/%@/?flight=%@", // urlFormatString 
+      // "https://safari-push-demo-app.herokuapp.com/%@/?flight=%@", // urlFormatString 
       "com.gf.safari.push.demo://xxxxxx",
       0123456789012345, // authenticationToken (zeroFilled to fit 16 chars) 
       "https://safari-push-demo-app.herokuapp.com" // webServiceURL (Must be https!) 
