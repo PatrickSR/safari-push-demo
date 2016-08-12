@@ -66,9 +66,7 @@ function createSignature() {
 createSignature();
 //---------------------------------------------//
 
-var options = {};
-
-var apnConnection = new apn.Connection(options);
+var apnConnection = new apn.Connection({});
 
 //---------------------------------------------//
 
