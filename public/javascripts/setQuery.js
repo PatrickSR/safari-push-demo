@@ -6,11 +6,11 @@ $(document).ready(function () {
     getTokenList();
 
     $('#submitBtn').click(function () {
-        $.post('domain/push', {
+        $.post('/push', {
             'title': $("input[name='title']").val() || '',   //标题
             'message': $("input[name='message']").val() || '',   //推送消息内容
             'action': $("input[name='action']").val() || '',
-            'token': $("input[name='token']").val() || '',  //已成功注册推送的token
+            'token': $("#tokenList").val() || '',  //已成功注册推送的token
             'arg1': $("input[name='arg1']").val() || '',  //附加到url的参数
             'arg2': $("input[name='arg2']").val() || ''
         }, function (resp, status) {
