@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>queryPage</title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/style.css">
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <script src="../javascripts/setQuery.js"></script>
+</head>
+<body>
+<div class="main">
+    <div class="main-content">
+        <h2>请填写请求参数: </h2>
+        <div class="formWrap">
+            <ul>
+                <li>
+                    <span>Token: </span>
+                    <select id="tokenList">
+                    </select>
+                </li>
+                <li>
+                    <span>Title: </span><input type="text" name="title" />
+                </li>
+                <li>
+                    <span>message: </span><input type="text" name="message" />
+                </li>
+                <li>
+                    <span>action: </span><input type="text" name="action" />
+                </li>
+                <li>
+                    <span>token: </span><input type="text" name="token" />
+                </li>
+                <li>
+                    <span>arg1: </span><input type="text" name="arg1" />
+                </li>
+                <li>
+                    <span>arg2: </span><input type="text" name="arg2" />
+                </li>
+            </ul>
+            <input id="submitBtn" type="submit" value="submit" />
+        </div>
+        <p class="respDescription"></p>
+    </div>
+</div>
+</body>
+</html>

@@ -1,8 +1,280 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+html, body, div, h1, h2, h3, p, img, ul, li {
+    margin: 0;
+    padding: 0;
+    border: 0;
 }
 
-a {
-  color: #00B7FF;
+html {
+    height: 100%;
+}
+
+body {
+    background: url("../img/bg.jpg") no-repeat top center;
+    background-size: 100% auto;
+}
+
+.main {
+    width: 95%;
+    margin: 0 auto;
+    height: 100%;
+    position: relative;
+    padding: 10px 4%;
+    min-height: 460px;
+    min-width: 304px;
+    max-width: 720px;
+    font-family: "Microsoft YaHei", "Arial";
+}
+
+.main-content {
+    margin-top: 20px;
+}
+
+.main-content .formWrap {
+    margin-top: 20px;
+}
+
+.main-content h2 {
+    font-size: 1.5em;
+    margin: 40px 10px 20px 0;
+    padding-left: 9px;
+    border-left: 6px solid #ff7e79;
+}
+.content-title {
+    font-weight: 400;
+    color: #ffc600;
+    overflow: hidden;
+}
+
+ul li {
+    color: #fff;
+    margin: 0 auto;
+    word-break: break-all;
+    list-style-type: none;
+}
+
+ul li span {
+    display: inline-block;
+    width: 80px;
+    height: 40px;
+    text-align: right;
+    padding-right: 10px;
+}
+
+ul li input {
+    width: 150px;
+    height: 20px;
+}
+
+#submitBtn {
+    color: #ffffff;
+    background-color: #0088cc;
+    border: 0;
+    border-radius: 5px;
+    float: right;
+    margin: 10px 50px 0 0;
+    padding: 8px 12px;
+}
+
+.logo {
+    overflow: hidden;
+}
+
+.content-center {
+    width: 100%;
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.description {
+    color: #fff;
+    margin: 0 auto;
+    word-break: break-all;
+    font-size: 18px;
+    padding-bottom: 68px;
+}
+
+.creat-time {
+    color: #ddd;
+}
+
+.respDescription {
+
+}
+
+.txt-center {
+    text-align: center !important;
+}
+
+.pb40 {
+    padding-bottom: 40px;
+}
+
+.tips {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    color: white;
+    display: none;
+    background-color: #000;
+    transition: 0.2s opacity linear;
+    opacity: 0.85;
+}
+
+.tips span {
+    position: relative;
+    top: 75px;
+    font-size: 30px;
+}
+
+.tips span img {
+    width: 15%;
+    min-width: 45px;
+    max-width: 90px;
+    margin-left: 20%;
+}
+
+.tips p {
+    position: relative;
+    top: 110px;
+    line-height: 1.5em;
+    text-align: left;
+    margin: 12px auto 0;
+    padding: 0 10% 10px;
+}
+
+.tips .ios-tips i {
+    font-style: normal;
+}
+
+.know-btn {
+    position: absolute;
+    top: 70%;
+    text-align: center;
+    width: 100%;
+}
+
+.know-btn img {
+    width: 50%;
+    max-width: 305px;
+    min-width: 153px;
+}
+
+.yellow {
+    color: #ffc600;
+}
+
+@media screen and (min-width: 320px) {
+    .logo {
+        padding: 83px 0 31px;
+    }
+
+    .logo img {
+        width: 85px;
+        height: 85px;
+    }
+
+    .content-title {
+        font-size: 31px;
+        margin-bottom: 13px;
+    }
+
+    .creat-time {
+        font-size: 12px;
+        margin-bottom: 21px;
+    }
+
+    .tips span {
+        font-size: 26px;
+    }
+
+    .tips p {
+        font-size: 20px;
+    }
+
+    .tips .ios-tips {
+        font-size: 15px;
+    }
+
+    .download-tips img {
+        width: 320px;
+    }
+}
+
+@media screen and (min-width: 375px) {
+    .logo {
+        padding: 98px 0 36px;
+    }
+
+    .logo img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .content-title {
+        font-size: 36px;
+        margin-bottom: 15px;
+    }
+
+    .creat-time {
+        font-size: 14px;
+        margin-bottom: 25px;
+    }
+
+    .tips span {
+        font-size: 30px;
+    }
+
+    .tips p {
+        font-size: 24px;
+    }
+
+    .tips .ios-tips {
+        font-size: 18px;
+    }
+
+    .download-tips img {
+        width: 375px;
+    }
+}
+
+@media screen and (min-width: 414px) {
+    .logo {
+        padding: 108px 0 40px;
+    }
+
+    .logo img {
+        width: 110px;
+        height: 110px;
+    }
+
+    .content-title {
+        font-size: 40px;
+        margin-bottom: 17px;
+    }
+
+    .creat-time {
+        font-size: 15px;
+        margin-bottom: 28px;
+    }
+
+    .tips span {
+        font-size: 33px;
+    }
+
+    .tips p {
+        font-size: 26px;
+    }
+
+    .tips .ios-tips {
+        font-size: 20px;
+    }
+
+    .download-tips img {
+        width: 414px;
+    }
 }
