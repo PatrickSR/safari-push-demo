@@ -202,7 +202,7 @@ function push(tokenlist, note) {
 function searchTokenExist(tokens, tagget) {
     for (var index = 0; index < tokens.length; index++) {
         var token = tokens[index];
-        if (token == tok) {
+        if (token == tagget) {
             return true
         }
     }
