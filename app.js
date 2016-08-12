@@ -13,6 +13,8 @@ var ejs = require('ejs');
 var users = require('./routes/users');
 var push = require('./routes/push');
 
+var options = require('./option')
+
 var app = express();
 
 // view engine setup
@@ -40,13 +42,13 @@ function createSignature() {
   var cert = fs.readFileSync('webPush/push_cert.pem'),
     key = fs.readFileSync('webPush/no_pass_private.pem'),
     websiteJson = pushLib.websiteJSON(
-      "Safari Push Notification Test", // websiteName 
-      "web.com.gf.testapp", // websitePushID 
-      ["https://safari-push-demo-app.herokuapp.com"], // allowedDomains 
-      "https://safari-push-demo-app.herokuapp.com/%@/?flight=%@", // urlFormatString 
+      options.pushPackage.websiteName, // websiteName 
+      options.pushPackage.websitePushID, // websitePushID 
+      options.pushPackage.allowedDomains, // allowedDomains 
+      options.pushPackage.urlFormatString, // urlFormatString 
       // "com.gf.safari.push.demo://xxxxxx",
-      0123456789012345, // authenticationToken (zeroFilled to fit 16 chars) 
-      "https://safari-push-demo-app.herokuapp.com" // webServiceURL (Must be https!) 
+      options.pushPackage.authToken, // authenticationToken (zeroFilled to fit 16 chars) 
+      options.pushPackage.webServiceURL // webServiceURL (Must be https!) 
     );
 
   pushLib.generatePackage(

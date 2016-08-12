@@ -2,6 +2,7 @@
 var express = require('express');
 var fs = require('fs');
 var apn = require('apn');
+var Wilddog = require('wilddog')
 
 var router = express.Router();
 
@@ -18,6 +19,9 @@ router.get('/', function(req, res, next) {
     res.render('index')
 });
 
+/**
+ * 用于打开Mac Apps
+ */
 router.get('/open',function (req, res ,next) {
     res.render('open')
 })
