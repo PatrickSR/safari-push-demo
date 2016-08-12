@@ -100,7 +100,8 @@ router.post('/push', function(req, res, next) {
         action: data.action
     }
     note.payload = {};
-    note.urlArgs = [data.arg1, data.arg2]
+    note.urlArgs = []
+    // note.urlArgs = [data.arg1, data.arg2]
     // note.urlArgs = [data.arg1]
         // note.urlArgs = []
     apnConnection.pushNotification(note, myMac);
