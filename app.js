@@ -44,7 +44,7 @@ function createSignature() {
       "web.com.gf.testapp", // websitePushID 
       ["https://safari-push-demo-app.herokuapp.com"], // allowedDomains 
       // "https://safari-push-demo-app.herokuapp.com/%@/?flight=%@", // urlFormatString 
-      "%@",
+      "%@://%@",
       0123456789012345, // authenticationToken (zeroFilled to fit 16 chars) 
       "https://safari-push-demo-app.herokuapp.com" // webServiceURL (Must be https!) 
     );
