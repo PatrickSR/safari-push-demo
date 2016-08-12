@@ -42,7 +42,7 @@ function createSignature() {
     websiteJson = pushLib.websiteJSON(
       "Safari Push Notification Test", // websiteName 
       "web.com.gf.testapp", // websitePushID 
-      ["https://safari-push-demo-app.herokuapp.com","https://gf-fintech.herokuapp.com/","https://gf-fintech-dev.herokuapp.com/"], // allowedDomains 
+      ["https://safari-push-demo-app.herokuapp.com","https://gf-fintech.herokuapp.com","https://gf-fintech-dev.herokuapp.com"], // allowedDomains 
       //"https://safari-push-demo-app.herokuapp.com/%@/?flight=%@", // urlFormatString 
       "https://safari-push-demo-app.herokuapp.com/%@/?flight=%@",
       // "com.gf.safari.push.demo://xxxxxx",
