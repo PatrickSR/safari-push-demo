@@ -13,7 +13,7 @@ var checkRemotePermission = function (permissionData) {
     if (permissionData.permission === 'default') {
         // This is a new web service URL and its validity is unknown.
         window.safari.pushNotification.requestPermission(
-            'https://gf-fintech.herokuapp.com', // The web service URL.
+            'https://gf-fintech-dev.herokuapp.com', // The web service URL.
             'web.com.gf.testapp',     // The Website Push ID.
             {}, // Data that you choose to send to your server to help you identify the user.
             checkRemotePermission         // The callback function.
