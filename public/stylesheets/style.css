@@ -15,15 +15,20 @@ body {
 }
 
 .main {
-    width: 45%;
+    width: 35%;
     margin: 0 auto;
     height: 100%;
     position: relative;
     padding: 10px 4%;
+    border: 1px solid #5b5b5b;
+    background-color: #31302e;
+    opacity: 0.8;
 }
 
 .main-content {
-    margin-top: 20px;
+    overflow: hidden;
+    width: 300px;
+    margin: 0 auto;
 }
 
 .main-content .formWrap {
@@ -69,7 +74,7 @@ ul li input {
     border: 0;
     border-radius: 5px;
     float: right;
-    margin: 10px 40% 0 0;
+    margin: 10px 20% 0 0;
     padding: 8px 12px;
 }
 
