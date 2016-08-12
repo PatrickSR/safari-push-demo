@@ -4,6 +4,8 @@ var fs = require('fs');
 var apn = require('apn');
 var Wilddog = require('wilddog')
 var apnConnection = require('../app').apns
+var options = require("../option")
+var request = require("request")
 
 var router = express.Router();
 
@@ -205,6 +207,10 @@ function searchTokenExist(tokens, tagget) {
         }
     }
     return false
+}
+
+function isArray(arr) {
+    return typeof arr == "object" && arr.constructor == Array;
 }
 
 module.exports = router;
