@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 var fs = require('fs');
 var pushLib = require('safari-push-notifications');
 var apn = require('apn');
-var ejs = require('ejs');
+var ejs = require('ejs'); 
 
 // var routes = require('./routes/index');
 var users = require('./routes/users');
